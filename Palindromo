@@ -1,0 +1,43 @@
+// Palindromo.cpp : Defines the entry point for the console application.
+// Deterninar si una frase o palabra es palindromo.
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#include "stdio.h"
+
+using namespace std;
+#define MAX 100
+
+bool palin (string cad);
+
+void main()
+{
+	string cad;
+	bool sol;
+	cout<< "Ingresar la palabra a verificar:";
+	getline (cin, cad);
+	sol = palin(cad);
+	if(sol == true)
+		cout<< "Es palindromo";
+	else
+		cout<< "No es Palindromo";
+	getch();
+}
+bool palin (string cad)
+{
+	bool sw;
+	int n, mitad, j, i;
+	sw = true;
+	n = cad.length ();
+	mitad =int (n/2);
+	j = n-1;
+	for (i = 0; i <= mitad; i++)
+	{
+		if(cad.at (i) != cad.at(j))
+			sw = false;
+		j--;
+	}
+	return(sw);
+}
